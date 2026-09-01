@@ -35,6 +35,7 @@ CUSTOM_CSS = """
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
 
+    /* ---------- Header ---------- */
     .main-header {
         background: linear-gradient(120deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
         padding: 2rem 2.2rem;
@@ -43,38 +44,54 @@ CUSTOM_CSS = """
         box-shadow: 0 10px 30px rgba(79,70,229,0.25);
     }
     .main-header h1 {
-        color: white;
+        color: #ffffff !important;
         font-size: 2.1rem;
         margin-bottom: 0.2rem;
         font-weight: 800;
     }
     .main-header p {
-        color: #e9e5ff;
+        color: #f1edff !important;
         font-size: 1.02rem;
         margin: 0;
     }
 
+    /* ---------- Metric cards (explicit dark text so they never inherit the app's white theme text) ---------- */
     .metric-card {
-        background: white;
+        background: #ffffff;
         border-radius: 14px;
         padding: 1.1rem 1.3rem;
-        box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-        border: 1px solid #eee;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+        border: 1px solid #ececec;
+    }
+    .metric-card .metric-label {
+        color: #6b7280 !important;
+        margin: 0;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    .metric-card .metric-value {
+        color: #111827 !important;
+        margin: 0.15rem 0 0 0;
+        font-size: 1.9rem;
+        font-weight: 800;
     }
 
+    /* ---------- Agent cards ---------- */
     .agent-card {
-        background: white;
+        background: #ffffff;
         border-radius: 16px;
         padding: 1.2rem 1.3rem;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.16);
         border-left: 5px solid #7c3aed;
         margin-bottom: 0.9rem;
         transition: transform 0.15s ease;
     }
     .agent-card:hover { transform: translateY(-3px); }
-    .agent-card h4 { margin-bottom: 0.25rem; }
-    .agent-card p { color: #555; font-size: 0.9rem; margin-bottom: 0; }
+    .agent-card h4 { margin-bottom: 0.25rem; color: #111827 !important; }
+    .agent-card p { color: #4b5563 !important; font-size: 0.9rem; margin-bottom: 0; }
+    .agent-card .agent-name { color: #111827 !important; font-size: 0.85rem; font-weight: 700; }
 
+    /* ---------- Badges ---------- */
     .badge {
         display: inline-block;
         padding: 0.25rem 0.7rem;
@@ -83,26 +100,92 @@ CUSTOM_CSS = """
         font-weight: 700;
         letter-spacing: 0.02em;
     }
-    .badge-success { background:#dcfce7; color:#15803d; }
-    .badge-warn    { background:#fef3c7; color:#b45309; }
-    .badge-fail    { background:#fee2e2; color:#b91c1c; }
-    .badge-info    { background:#dbeafe; color:#1d4ed8; }
+    .badge-success { background:#dcfce7; color:#15803d !important; }
+    .badge-warn    { background:#fef3c7; color:#b45309 !important; }
+    .badge-fail    { background:#fee2e2; color:#b91c1c !important; }
+    .badge-info    { background:#dbeafe; color:#1d4ed8 !important; }
 
+    /* ---------- Live agent log lines ---------- */
     .log-line {
         font-family: 'Consolas', monospace;
         font-size: 0.86rem;
-        padding: 0.35rem 0.6rem;
+        padding: 0.5rem 0.7rem;
         border-radius: 8px;
-        margin-bottom: 0.3rem;
-        background: #f8f9fc;
+        margin-bottom: 0.35rem;
+        background: #ffffff;
+        color: #1f2937 !important;
         border-left: 3px solid #7c3aed;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
 
     .section-title {
         font-weight: 800;
         font-size: 1.3rem;
         margin: 1.1rem 0 0.6rem 0;
-        color: #1f2937;
+        color: inherit;
+    }
+
+    /* ---------- Feature / home cards ---------- */
+    .feature-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.3rem 1.4rem;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+        height: 100%;
+        border-top: 4px solid #7c3aed;
+    }
+    .feature-card h3 { color: #111827 !important; margin: 0.3rem 0 0.4rem 0; font-size: 1.05rem; }
+    .feature-card p  { color: #4b5563 !important; font-size: 0.88rem; margin: 0; }
+    .feature-card .feature-icon { font-size: 1.8rem; }
+
+    /* ---------- Sidebar ---------- */
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #1e1b4b 0%, #312e81 55%, #4c1d95 100%);
+    }
+    section[data-testid="stSidebar"] * { color: #ede9fe !important; }
+    section[data-testid="stSidebar"] hr { border-color: rgba(255,255,255,0.15); }
+
+    .sidebar-brand {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #ffffff !important;
+        margin-bottom: 0;
+    }
+    .sidebar-caption {
+        font-size: 0.8rem;
+        color: #c4b5fd !important;
+        margin-bottom: 1rem;
+    }
+
+    /* Nav buttons in the sidebar */
+    section[data-testid="stSidebar"] div[data-testid="stButton"] button {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        color: #ede9fe !important;
+        text-align: left;
+        border-radius: 10px;
+        padding: 0.55rem 0.9rem;
+        font-weight: 600;
+        transition: all 0.15s ease;
+    }
+    section[data-testid="stSidebar"] div[data-testid="stButton"] button:hover {
+        background: rgba(255,255,255,0.16);
+        border-color: rgba(255,255,255,0.3);
+        transform: translateX(2px);
+    }
+    section[data-testid="stSidebar"] div[data-testid="stButton"] button[kind="primary"] {
+        background: linear-gradient(120deg, #7c3aed, #db2777);
+        border: none;
+        color: #ffffff !important;
+        box-shadow: 0 4px 14px rgba(124,58,237,0.45);
+    }
+
+    .sidebar-stat-box {
+        background: rgba(255,255,255,0.07);
+        border-radius: 10px;
+        padding: 0.6rem 0.8rem;
+        margin-top: 0.6rem;
+        font-size: 0.82rem;
     }
 </style>
 """
@@ -276,7 +359,7 @@ def process_order_pipeline(order, live_container):
     emit("🚚", "Logistics Agent", msg, "success")
     time.sleep(0.35)
     extra["courier"] = courier
-    extra["eta"] = eta # type: ignore
+    extra["eta"] = eta
 
     notif_msg = run_notification_agent(order, "Completed")
     emit("📧", "Notification Agent", notif_msg, "success")
@@ -289,20 +372,47 @@ def process_order_pipeline(order, live_container):
 # ----------------------------------------------------------------------------
 # SIDEBAR NAVIGATION
 # ----------------------------------------------------------------------------
+NAV_ITEMS = [
+    "🏡 Home",
+    "🏠 Dashboard",
+    "🛒 New Order",
+    "📋 Order Tracking",
+    "🕸️ Agent Network",
+    "📊 Analytics",
+]
+
+if "page" not in st.session_state:
+    st.session_state.page = "🏡 Home"
+
 with st.sidebar:
-    st.markdown("### 🤖 Agentic OMS")
-    st.caption("Multi-agent order processing demo")
-    page = st.radio(
-        "Navigate",
-        ["🏠 Dashboard", "🛒 New Order", "📋 Order Tracking", "🕸️ Agent Network", "📊 Analytics"],
-        label_visibility="collapsed",
-    )
+    st.markdown("<p class='sidebar-brand'>🤖 Agentic OMS</p>", unsafe_allow_html=True)
+    st.markdown("<p class='sidebar-caption'>Multi-agent order processing demo</p>", unsafe_allow_html=True)
+
+    for item in NAV_ITEMS:
+        is_active = st.session_state.page == item
+        if st.button(item, key=f"nav_{item}", use_container_width=True,
+                     type="primary" if is_active else "secondary"):
+            st.session_state.page = item
+            st.rerun()
+
     st.markdown("---")
-    st.caption(f"Orders processed this session: **{len(st.session_state.orders)}**")
+
+    orders = st.session_state.orders
+    n_total = len(orders)
+    n_completed = sum(1 for o in orders if o["status"] == "Completed")
+    st.markdown(
+        f"<div class='sidebar-stat-box'>📦 Orders this session: <b>{n_total}</b><br>"
+        f"✅ Completed: <b>{n_completed}</b></div>",
+        unsafe_allow_html=True,
+    )
+
+    st.markdown("<br>", unsafe_allow_html=True)
     if st.button("🗑️ Reset demo data", use_container_width=True):
         st.session_state.orders = []
         st.session_state.order_counter = 1000
         st.rerun()
+
+page = st.session_state.page
 
 # ----------------------------------------------------------------------------
 # HEADER
@@ -318,9 +428,60 @@ st.markdown(
 )
 
 # ----------------------------------------------------------------------------
+# PAGE: HOME
+# ----------------------------------------------------------------------------
+if page == "🏡 Home":
+    orders = st.session_state.orders
+    total = len(orders)
+    completed = sum(1 for o in orders if o["status"] == "Completed")
+    revenue = sum(o["amount"] for o in orders if o["status"] == "Completed")
+
+    c1, c2, c3 = st.columns(3)
+    for col, label, value in zip([c1, c2, c3],
+                                  ["Orders Processed", "Completed", "Revenue Generated"],
+                                  [total, completed, f"${revenue:,.2f}"]):
+        with col:
+            st.markdown(
+                f"<div class='metric-card'><p class='metric-label'>{label}</p>"
+                f"<p class='metric-value'>{value}</p></div>",
+                unsafe_allow_html=True,
+            )
+
+    st.markdown("<div class='section-title'>What is Agentic OMS?</div>", unsafe_allow_html=True)
+    st.write(
+        "A demonstration of **agentic AI applied to order management**. Instead of one monolithic "
+        "system, seven specialized agents each own a single responsibility — validating orders, "
+        "checking stock, scoring fraud risk, capturing payment, arranging logistics, and notifying "
+        "customers — all coordinated by an Orchestrator agent. Every decision is logged in plain "
+        "language so you can see exactly how the AI reasoned at each step."
+    )
+
+    st.markdown("<div class='section-title'>Explore the Demo</div>", unsafe_allow_html=True)
+    f1, f2, f3 = st.columns(3)
+    features = [
+        (f1, "🛒", "Place an Order", "Submit a new order and watch the agent pipeline process it live, step by step, in real time."),
+        (f2, "📋", "Track Orders", "Browse every order processed this session and drill into the full agent-by-agent decision log."),
+        (f3, "🕸️", "Agent Network", "See how the agents hand off work to one another in a visual orchestration diagram."),
+    ]
+    for col, icon, title, desc in features:
+        with col:
+            st.markdown(
+                f"<div class='feature-card'><div class='feature-icon'>{icon}</div>"
+                f"<h3>{title}</h3><p>{desc}</p></div>",
+                unsafe_allow_html=True,
+            )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    cta_col = st.columns([1, 1, 1])[1]
+    with cta_col:
+        if st.button("🚀 Create Your First Order", use_container_width=True, type="primary"):
+            st.session_state.page = "🛒 New Order"
+            st.rerun()
+
+# ----------------------------------------------------------------------------
 # PAGE: DASHBOARD
 # ----------------------------------------------------------------------------
-if page == "🏠 Dashboard":
+elif page == "🏠 Dashboard":
     orders = st.session_state.orders
 
     total = len(orders)
@@ -338,8 +499,8 @@ if page == "🏠 Dashboard":
     ):
         with col:
             st.markdown(
-                f"<div class='metric-card'><p style='color:#888;margin:0;font-size:0.85rem'>{delta} {label}</p>"
-                f"<h2 style='margin:0.1rem 0 0 0'>{value}</h2></div>",
+                f"<div class='metric-card'><p class='metric-label'>{delta} {label}</p>"
+                f"<p class='metric-value'>{value}</p></div>",
                 unsafe_allow_html=True,
             )
 
@@ -350,7 +511,7 @@ if page == "🏠 Dashboard":
             st.markdown(
                 f"<div class='agent-card' style='text-align:center;'>"
                 f"<div style='font-size:1.8rem'>{agent['icon']}</div>"
-                f"<b style='font-size:0.85rem'>{agent['name'].replace(' Agent','')}</b><br>"
+                f"<span class='agent-name'>{agent['name'].replace(' Agent','')}</span><br>"
                 f"<span class='badge badge-success'>● Online</span></div>",
                 unsafe_allow_html=True,
             )
