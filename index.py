@@ -423,8 +423,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-# ----------------------------------------------------------------------------
 # PAGE: HOME
 if page == "🏡 Home":
     orders = st.session_state.orders
