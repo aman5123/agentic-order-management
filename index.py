@@ -19,7 +19,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-# ----------------------------------------------------------------------------
 # PAGE CONFIG & GLOBAL STYLE
 st.set_page_config(
     page_title="Agentic AI Order Management System",
