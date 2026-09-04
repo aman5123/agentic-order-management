@@ -1,6 +1,5 @@
 """
 Agentic AI Order Management System — Streamlit Demo
-=====================================================
 A multi-agent order processing pipeline where specialized AI agents
 (Intake, Inventory, Fraud Detection, Payment, Logistics, Notification)
 collaborate under an Orchestrator to process customer orders end to end.
